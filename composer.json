@@ -1,5 +1,5 @@
 {
-    "name": "radly/migrations-bundle",
+    "name": "radphp/migrations-bundle",
     "description": " RadPHP database migrations bundle",
     "keywords": ["RadPHP", "database", "migrations", "bundle"],
     "type": "radphp-bundle",
