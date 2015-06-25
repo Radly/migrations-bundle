@@ -51,8 +51,8 @@ trait ConfigurationTrait
             ],
             'environments' => [
                 'default_migration_table' => $migrationTable,
-                'default_database' => \Rad\Config::get('env'),
-                \Rad\Config::get('env') => \Rad\Config::get('Migrations.environments.' . \Rad\Config::get('env'))
+                'default_database' => getenv('RAD_ENV'),
+                getenv('RAD_ENV') => \Rad\Config::get('Migrations.environments.' . getenv('RAD_ENV'))
             ]
         ]);
     }
@@ -69,7 +69,7 @@ trait ConfigurationTrait
     {
         $this->input = $input;
         $this->addOption('--environment', '-e', InputArgument::OPTIONAL);
-        $input->setOption('environment', \Rad\Config::get('env'));
+        $input->setOption('environment', getenv('RAD_ENV'));
         parent::execute($input, $output);
     }
 }
