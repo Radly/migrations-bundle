@@ -3,6 +3,8 @@
 namespace RadBundle\Migrations\Event;
 
 use Rad\Application;
+use Rad\DependencyInjection\Container;
+use Rad\Events\Event;
 use Rad\Events\EventManager;
 use Rad\Events\EventSubscriberInterface;
 use Rad\Routing\Router;
@@ -13,11 +15,11 @@ use RadBundle\Migrations\Command\Status;
 use Symfony\Component\Console\Application as ConsoleApplication;
 
 /**
- * Migrations Event
+ * Migrations Subscriber
  *
  * @package RadBundle\Migrations\Event
  */
-class MigrationsListener implements EventSubscriberInterface
+class MigrationsSubscriber implements EventSubscriberInterface
 {
     /**
      * Subscribe event listener
@@ -28,20 +30,20 @@ class MigrationsListener implements EventSubscriberInterface
      */
     public function subscribe(EventManager $eventManager)
     {
-        $eventManager->attach(Application::EVENT_AFTER_CLI_METHOD, 'runConsoleApplication');
+        $eventManager->attach(Application::EVENT_AFTER_CLI_METHOD, [$this, 'runConsoleApplication']);
     }
 
     /**
      * Run console application
      *
-     * @param EventManager $event
+     * @param Event $event
      *
      * @throws \Rad\DependencyInjection\Exception
      */
-    public function runConsoleApplication(EventManager $event)
+    public function runConsoleApplication(Event $event)
     {
         /** @var Router $router */
-        $router = $di->get('router');
+        $router = Container::get('router');
         if ($router->getModule() !== 'Migrations') {
             return;
         }
