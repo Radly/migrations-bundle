@@ -18,15 +18,12 @@
     ],
     "require": {
         "php": ">=5.5.21",
-        "radly/radphp": "dev-master",
+        "radphp/radphp": "dev-master",
         "robmorgan/phinx": ">=0.4.2 <1.0"
     },
     "autoload": {
         "psr-4": {
           "RadBundle\\Migrations\\": "src"
         }
-    },
-    "extra": {
-        "installer-name": "Migrations"
     }
 }
