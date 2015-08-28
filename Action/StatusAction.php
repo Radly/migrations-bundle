@@ -1,13 +1,13 @@
 <?php
 
-namespace RadBundle\Migrations\Action;
+namespace Migrations\Action;
 
 use App\Action\AppAction;
 
 /**
  * Status Action
  *
- * @package RadBundle\Migrations\Action
+ * @package Migrations\Action
  */
 class StatusAction extends AppAction
 {

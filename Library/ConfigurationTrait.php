@@ -1,6 +1,6 @@
 <?php
 
-namespace RadBundle\Migrations;
+namespace Migrations\Library;
 
 use Phinx\Config\Config;
 use Rad\Core\Bundles;
@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Configuration Trait
  *
- * @package RadBundle\Migrations
+ * @package Migrations
  */
 trait ConfigurationTrait
 {
@@ -38,11 +38,11 @@ trait ConfigurationTrait
             return $this->configuration;
         }
 
-        $dir = APP . DS . 'Resource' . DS . 'Migrations';
+        $dir = APP_DIR . DS . 'Resource' . DS . 'migrations';
         $migrationTable = 'phinxlog';
 
         if ($bundleName = $this->input->getOption('bundle')) {
-            $dir = Bundles::getPath($bundleName) . DS . 'Resource' . DS . 'Migrations';
+            $dir = Bundles::getPath($bundleName) . DS . 'Resource' . DS . 'migrations';
         }
 
         return $this->configuration = new Config([
@@ -51,8 +51,8 @@ trait ConfigurationTrait
             ],
             'environments' => [
                 'default_migration_table' => $migrationTable,
-                'default_database' => getenv('RAD_ENV'),
-                getenv('RAD_ENV') => \Rad\Config::get('Migrations.environments.' . getenv('RAD_ENV'))
+                'default_database' => getenv('RAD_ENVIRONMENT'),
+                getenv('RAD_ENVIRONMENT') => \Rad\Configure\Config::get('Migrations.environments.' . getenv('RAD_ENVIRONMENT'))
             ]
         ]);
     }
@@ -69,7 +69,7 @@ trait ConfigurationTrait
     {
         $this->input = $input;
         $this->addOption('--environment', '-e', InputArgument::OPTIONAL);
-        $input->setOption('environment', getenv('RAD_ENV'));
+        $input->setOption('environment', getenv('RAD_ENVIRONMENT'));
         parent::execute($input, $output);
     }
 }

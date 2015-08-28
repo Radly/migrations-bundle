@@ -1,15 +1,15 @@
 <?php
 
-namespace RadBundle\Migrations\Command;
+namespace Migrations\Library\Command;
 
 use Phinx\Console\Command\Migrate as MigrateCommand;
-use RadBundle\Migrations\ConfigurationTrait;
+use Migrations\Library\ConfigurationTrait;
 use Symfony\Component\Console\Input\InputArgument;
 
 /**
  * Migrate Command
  *
- * @package RadBundle\Migrations\Command
+ * @package Migrations\Library\Command
  */
 class Migrate extends MigrateCommand
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace RadBundle\Migrations\Action;
+namespace Migrations\Action;
 
 use App\Action\AppAction;
 
 /**
  * Migrate Action
  *
- * @package RadBundle\Migrations\Action
+ * @package Migrations\Action
  */
 class MigrateAction extends AppAction
 {

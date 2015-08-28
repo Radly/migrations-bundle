@@ -1,15 +1,15 @@
 <?php
 
-namespace RadBundle\Migrations\Command;
+namespace Migrations\Library\Command;
 
 use Phinx\Console\Command\Rollback as RollbackCommand;
-use RadBundle\Migrations\ConfigurationTrait;
+use Migrations\Library\ConfigurationTrait;
 use Symfony\Component\Console\Input\InputArgument;
 
 /**
  * Rollback Command
  *
- * @package RadBundle\Migrations\Command
+ * @package Migrations\Library\Command
  */
 class Rollback extends RollbackCommand
 {

@@ -1,15 +1,15 @@
 <?php
 
-namespace RadBundle\Migrations\Command;
+namespace Migrations\Library\Command;
 
 use Phinx\Console\Command\Status as StatusCommand;
-use RadBundle\Migrations\ConfigurationTrait;
+use Migrations\Library\ConfigurationTrait;
 use Symfony\Component\Console\Input\InputArgument;
 
 /**
  * Status Command
  *
- * @package RadBundle\Migrations\Command
+ * @package Migrations\Library\Command
  */
 class Status extends StatusCommand
 {

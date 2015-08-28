@@ -1,23 +1,23 @@
 <?php
 
-namespace RadBundle\Migrations\Event;
+namespace Migrations\Event;
 
-use Rad\Application;
+use Rad\Core\Action;
 use Rad\DependencyInjection\Container;
 use Rad\Events\Event;
 use Rad\Events\EventManager;
 use Rad\Events\EventSubscriberInterface;
 use Rad\Routing\Router;
-use RadBundle\Migrations\Command\Create;
-use RadBundle\Migrations\Command\Migrate;
-use RadBundle\Migrations\Command\Rollback;
-use RadBundle\Migrations\Command\Status;
+use Migrations\Library\Command\Create;
+use Migrations\Library\Command\Migrate;
+use Migrations\Library\Command\Rollback;
+use Migrations\Library\Command\Status;
 use Symfony\Component\Console\Application as ConsoleApplication;
 
 /**
  * Migrations Subscriber
  *
- * @package RadBundle\Migrations\Event
+ * @package Migrations\Event
  */
 class MigrationsSubscriber implements EventSubscriberInterface
 {
@@ -30,7 +30,7 @@ class MigrationsSubscriber implements EventSubscriberInterface
      */
     public function subscribe(EventManager $eventManager)
     {
-        $eventManager->attach(Application::EVENT_AFTER_CLI_METHOD, [$this, 'runConsoleApplication']);
+        $eventManager->attach(Action::EVENT_BEFORE_CLI_METHOD, [$this, 'runConsoleApplication']);
     }
 
     /**
@@ -44,7 +44,7 @@ class MigrationsSubscriber implements EventSubscriberInterface
     {
         /** @var Router $router */
         $router = Container::get('router');
-        if ($router->getModule() !== 'Migrations') {
+        if ($router->getBundle() !== 'migrations') {
             return;
         }
 

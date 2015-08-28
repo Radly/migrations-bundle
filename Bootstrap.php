@@ -1,20 +1,20 @@
 <?php
 
-namespace RadBundle\Migrations;
+namespace Migrations;
 
-use Rad\Config;
 use Rad\Core\Bundle;
-use RadBundle\Migrations\Event\MigrationsSubscriber;
+use Rad\Configure\Config;
+use Migrations\Event\MigrationsSubscriber;
 
 /**
  * Migrations Bootstrap
  *
- * @package RadBundle\Migrations
+ * @package Migrations
  */
 class Bootstrap extends Bundle
 {
     /**
-     * RadBundle\Migrations\Bootstrap constructor
+     * Migrations\Bootstrap constructor
      */
     public function __construct()
     {

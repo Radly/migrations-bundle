@@ -1,13 +1,13 @@
 <?php
 
-namespace RadBundle\Migrations\Action;
+namespace Migrations\Action;
 
 use App\Action\AppAction;
 
 /**
  * Rollback Action
  *
- * @package RadBundle\Migrations\Action
+ * @package Migrations\Action
  */
 class RollbackAction extends AppAction
 {

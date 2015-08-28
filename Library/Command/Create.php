@@ -1,9 +1,9 @@
 <?php
 
-namespace RadBundle\Migrations\Command;
+namespace Migrations\Library\Command;
 
 use Phinx\Console\Command\Create as CreateCommand;
-use RadBundle\Migrations\ConfigurationTrait;
+use Migrations\Library\ConfigurationTrait;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Create Command
  *
- * @package RadBundle\Migrations\Command
+ * @package Migrations\Library\Command
  */
 class Create extends CreateCommand
 {
