@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'Migrations' => [
+    'migrations' => [
         'default_migration_table' => 'phinxlog',
         'default_database' => 'development',
         'environments' => [

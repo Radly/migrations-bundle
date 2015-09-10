@@ -26,6 +26,6 @@ class MigrationsBundle extends AbstractBundle
      */
     public function loadConfig()
     {
-        Config::load(__DIR__ . DS . 'Config' . DS . 'config.php');
+        Config::load(__DIR__ . DS . 'Resource' . DS . 'config' . DS . 'config.php');
     }
 }

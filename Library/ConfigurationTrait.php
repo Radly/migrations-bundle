@@ -52,7 +52,7 @@ trait ConfigurationTrait
             'environments' => [
                 'default_migration_table' => $migrationTable,
                 'default_database' => getenv('RAD_ENVIRONMENT'),
-                getenv('RAD_ENVIRONMENT') => \Rad\Configure\Config::get('Migrations.environments.' . getenv('RAD_ENVIRONMENT'))
+                getenv('RAD_ENVIRONMENT') => \Rad\Configure\Config::get('migrations.environments.' . getenv('RAD_ENVIRONMENT'))
             ]
         ]);
     }
